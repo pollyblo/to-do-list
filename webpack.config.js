@@ -1,10 +1,9 @@
 const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
   entry: {
-    app: './src/script/app.ts',
+    app: './src/script/App.ts',
   },
   devtool: 'inline-source-map',
   devServer: {
@@ -12,12 +11,7 @@ module.exports = {
     watchFiles: ['./src/'],
     hot: true,
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      title: 'Output Management',
-    }),
-    new MiniCssExtractPlugin(),
-  ],
+  plugins: [new MiniCssExtractPlugin()],
   mode: 'development',
   module: {
     rules: [
@@ -43,6 +37,6 @@ module.exports = {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
     publicPath: '/dist/',
-    clean: true,
+    clean: false,
   },
 };
