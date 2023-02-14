@@ -1,5 +1,6 @@
 import { Project } from './Project';
 import { makeTask } from './Tags';
+import { makeToDo, ToDo } from './ToDo';
 
 export const displayTasks = (project: Project) => {
   const tasks = document.getElementById('todos') as HTMLDivElement;
@@ -37,4 +38,17 @@ export const makeModals = () => {
     openModal,
     closeModal,
   };
+};
+
+export const saveTaskForm = () => {
+  const taskTitle = document.getElementById('task-title') as HTMLInputElement;
+  const taskDesc = document.getElementById('task-desc') as HTMLInputElement;
+  const taskDate = document.getElementById('task-date') as HTMLInputElement;
+  const taskPriority = document.getElementById(
+    'task-priority'
+  ) as HTMLInputElement;
+  const priority = taskPriority.checked ? 'Important' : 'Not Important';
+  const date = new Date(taskDate.value);
+  const task = makeToDo(taskTitle.value, taskDesc.value, date, priority, false);
+  return task;
 };

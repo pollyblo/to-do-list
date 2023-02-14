@@ -133,43 +133,46 @@
             <input type="checkbox" name="done" id="todo-done" />
           </div>
         </div>
-        <div class="todo-container">
-          <div>
-            <h2 class="todo-title">Title</h2>
-            <span class="todo-date">05/08/1995</span>
-          </div>
-          <p class="todo-desc">Babla</p>
-          <div>
-            <label for="important">Important</label>
-            <input type="checkbox" id="todo-important" name="important" />
-            <label for="done">Done</label>
-            <input type="checkbox" name="done" id="todo-done" />
-          </div>
-        </div>
-        <div class="todo-container">
-          <div>
-            <h2 class="todo-title">Title</h2>
-            <span class="todo-date">05/08/1995</span>
-          </div>
-          <p class="todo-desc">Babla</p>
-          <div>
-            <label for="important">Important</label>
-            <input type="checkbox" id="todo-important" name="important" />
-            <label for="done">Done</label>
-            <input type="checkbox" name="done" id="todo-done" />
-          </div>
-        </div>
       </div>
     </main>
     <section class="modal hidden">
       <button type="button" id="close-btn">X</button>
-      <div>
-        <h3>Stay in touch</h3>
-        <p>
-          This is a dummy newsletter form so don't bother trying to test it. Not
-          that I expect you to, anyways. :)
-        </p>
-      </div>
+      <form action="" id="task-form">
+        <div class="form-container">
+          <label for="task-title">Title</label>
+          <input
+            type="text"
+            name="task-title"
+            id="task-title"
+            required
+            minlength="1"
+            maxlength="15"
+          />
+        </div>
+        <div class="form-container">
+          <label for="task-desc">Description</label>
+          <textarea
+            name="task-desc"
+            id="task-desc"
+            cols="30"
+            rows="5"
+            required
+            minlength="5"
+            maxlength="150"
+          ></textarea>
+        </div>
+        <div class="form-container">
+          <label for="task-date">Due Date</label>
+          <input type="date" name="task-date" id="task-date" required />
+        </div>
+        <div class="form-container">
+          <label for="task-priority">Important</label>
+          <input type="checkbox" name="task-priority" id="task-priority" />
+        </div>
+        <div class="form-container">
+          <button type="button" id="submit-task-btn">Confirm</button>
+        </div>
+      </form>
     </section>
     <div class="overlay hidden"></div>
   </body>

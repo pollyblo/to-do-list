@@ -23,9 +23,20 @@ aside {
 }
 
 .modal {
+  form {
+    button {
+      display: flex;
+      align-items: center;
+      padding: 20px 10px;
+      background-color: rgb(170, 230, 121);
+      border-radius: 20px;
+    }
+  }
   button {
+    background-color: transparent;
     cursor: pointer;
     border: none;
+    font-size: 1.2rem;
     font-weight: 600;
   }
 }

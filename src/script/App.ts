@@ -1,18 +1,28 @@
 import { makeToDo } from './ToDo';
 import { makeProject } from './Project';
 import { board } from './Board';
-import { displayTasks, makeModals } from './DomMaker';
+import { displayTasks, makeModals, saveTaskForm } from './DomMaker';
 import '../style/style.scss';
 
-const first = makeToDo('Eat', 'Eat tonight', new Date(), 'Important', true);
-const project = makeProject('Hey');
-project.addToDo(first.getToDo());
-displayTasks(project.getProject());
+const defaultProject = makeProject('Default');
 
-const modalListener = (() => {
+const listeners = (() => {
   const openModalBtn = document.querySelector('#add-btn') as HTMLDivElement;
   const closeModalBtn = document.querySelector('#close-btn') as HTMLDivElement;
+  const confirmModalBtn = document.querySelector(
+    '#submit-task-btn'
+  ) as HTMLDivElement;
+  const taskForm = document.querySelector('#task-form') as HTMLFormElement;
 
   openModalBtn.addEventListener('click', makeModals().openModal);
   closeModalBtn.addEventListener('click', makeModals().closeModal);
+  confirmModalBtn.addEventListener('click', () => {
+    const task = saveTaskForm();
+    console.log(task.getToDo());
+    defaultProject.addToDo(task.getToDo());
+    console.log(defaultProject.getProject());
+    makeModals().closeModal();
+    displayTasks(defaultProject.getProject());
+    taskForm.reset();
+  });
 })();

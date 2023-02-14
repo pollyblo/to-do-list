@@ -30,6 +30,7 @@ export const makeToDo = (
   };
 
   const isDone = () => {
+    if (toDoObject.done === undefined) toDoObject.done = false;
     toDoObject.done = toDoObject.done ? false : true;
   };
 
