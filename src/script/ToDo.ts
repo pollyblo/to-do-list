@@ -1,7 +1,7 @@
 export interface ToDo {
   title: string;
   desc: string;
-  dueDate: Date;
+  dueDate: Date | 'No Date Due';
   priority: priority;
   done: boolean;
 }
@@ -11,7 +11,7 @@ export type priority = 'Important' | 'Not Important';
 export const makeToDo = (
   title: string,
   desc: string,
-  dueDate: Date,
+  dueDate: Date | 'No Date Due',
   priority: priority,
   done: boolean
 ) => {
@@ -30,7 +30,6 @@ export const makeToDo = (
   };
 
   const isDone = () => {
-    if (toDoObject.done === undefined) toDoObject.done = false;
     toDoObject.done = toDoObject.done ? false : true;
   };
 

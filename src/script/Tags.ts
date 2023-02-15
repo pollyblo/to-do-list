@@ -1,4 +1,4 @@
-export const makeTask = (
+export const taskTag = (
   title: string,
   date: string,
   desc: string,
@@ -18,4 +18,8 @@ export const makeTask = (
     <input type="checkbox" name="done" id="todo-done" ${checkDone}/>
   </div>
   </div>`;
+};
+
+export const projectTag = (projectName: string, i: number) => {
+  return `<li class="project-list-item" data-id-proj="${i}">${projectName}</li>`;
 };

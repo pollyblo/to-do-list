@@ -3,12 +3,12 @@
   flex-direction: column;
   align-items: center;
   width: 350px;
-  height: 400px;
+  height: 470px;
   position: fixed;
   top: 50%;
   left: 50%;
   margin-top: -200px;
-  margin-left: -175px;
+  margin-left: -185px;
   background-color: white;
   border: 1px solid #ddd;
   border-radius: 15px;
@@ -41,7 +41,7 @@
     justify-self: flex-start;
     width: 20px;
     height: 20px;
-    margin: 10px 10px 0px 0px;
+    margin: 0.8rem 0.8rem 0 0;
   }
   p {
     font-size: 0.9rem;
@@ -65,4 +65,10 @@
   background: rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(3px);
   z-index: 1;
+}
+
+.error {
+  color: red;
+  font-size: 0.8rem;
+  margin: 0.5rem 0 0.2rem;
 }

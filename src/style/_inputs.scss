@@ -1,3 +1,18 @@
+input,
+textarea {
+  border: none;
+  border-radius: 20px;
+  padding: 0.8rem 1.2rem;
+  font-weight: 600;
+  color: #333;
+  background-color: #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
 header {
   button {
     display: flex;
@@ -7,7 +22,10 @@ header {
     height: 30px;
     width: 120px;
     border-radius: 20px;
-    padding: 15px 10px;
+    padding: 1rem 0.8rem;
+    cursor: pointer;
+  }
+  li {
     cursor: pointer;
   }
 }
@@ -27,7 +45,7 @@ aside {
     button {
       display: flex;
       align-items: center;
-      padding: 20px 10px;
+      padding: 1.2rem 0.8rem;
       background-color: rgb(170, 230, 121);
       border-radius: 20px;
     }
@@ -39,4 +57,10 @@ aside {
     font-size: 1.2rem;
     font-weight: 600;
   }
+}
+
+#project-name-inp {
+  width: 150px;
+  padding: 0.5rem 0.5rem;
+  border: 1px solid rgb(151, 184, 255);
 }

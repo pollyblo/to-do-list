@@ -87,14 +87,25 @@
           </g>
         </g>
       </svg>
-      <div id="project-name">
-        <ul>
-          <li>Default</li>
-          <li>Project 1</li>
-          <li>Project 2</li>
-        </ul>
+      <div>
+        <div id="project-name">
+          <ul id="project-list">
+            <li class="project-list-item" data-id-proj="0">Default</li>
+          </ul>
+          <ul>
+            <li>
+              <input
+                type="text"
+                name="project-name"
+                class="hidden"
+                id="project-name-inp"
+                placeholder="Project Name"
+              />
+            </li>
+          </ul>
+        </div>
       </div>
-      <button type="button">New Project</button>
+      <button type="button" id="new-project-btn">New Project</button>
     </header>
     <aside>
       <button type="button" id="add-btn">+</button>
@@ -146,7 +157,7 @@
             id="task-title"
             required
             minlength="1"
-            maxlength="15"
+            maxlength="12"
           />
         </div>
         <div class="form-container">
@@ -158,7 +169,7 @@
             rows="5"
             required
             minlength="5"
-            maxlength="150"
+            maxlength="180"
           ></textarea>
         </div>
         <div class="form-container">
@@ -173,6 +184,7 @@
           <button type="button" id="submit-task-btn">Confirm</button>
         </div>
       </form>
+      <span id="title-error" class="error hidden">You need a title !</span>
     </section>
     <div class="overlay hidden"></div>
   </body>
