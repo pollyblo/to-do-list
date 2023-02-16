@@ -1,3 +1,18 @@
+$grey: #afafaf1f;
+$white: #92929294;
+$black: #5c5b5bcb;
+
+@mixin templateInp {
+  border: transparent;
+  box-shadow: 1px 2px 10px rgba(0, 0, 0, 0.2);
+  background-color: $grey;
+  transition: box-shadow 0.2s ease-in-out, color 0.2s ease-in-out;
+  &:hover {
+    color: $black;
+    box-shadow: 1px 2px 6px rgba(0, 0, 0, 0.2);
+  }
+}
+
 input,
 textarea {
   border: none;
@@ -15,28 +30,28 @@ textarea {
 
 header {
   button {
+    @include templateInp;
     display: flex;
     align-items: center;
     justify-content: center;
 
-    height: 30px;
-    width: 120px;
-    border-radius: 20px;
-    padding: 1rem 0.8rem;
+    height: 50px;
+    width: 250px;
+    border-radius: 50px;
+    padding: 0.2rem 0rem;
+    font-size: 1.3rem;
+    font-weight: bolder;
+    color: $white;
     cursor: pointer;
+    &:hover {
+      color: #333;
+    }
   }
   li {
     cursor: pointer;
-  }
-}
-
-aside {
-  button {
-    border-radius: 50%;
-    width: 40px;
-    height: 40px;
-    font-weight: 600;
-    cursor: pointer;
+    #project-name-inp {
+      @include templateInp;
+    }
   }
 }
 
@@ -63,4 +78,20 @@ aside {
   width: 150px;
   padding: 0.5rem 0.5rem;
   border: 1px solid rgb(151, 184, 255);
+}
+
+#add-btn {
+  @include templateInp;
+  position: absolute;
+  bottom: 60px;
+  right: 80px;
+  width: 150px;
+  height: 150px;
+  border: transparent;
+  color: $white;
+  font-size: 8rem;
+  border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+  }
 }

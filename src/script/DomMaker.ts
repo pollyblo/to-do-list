@@ -7,7 +7,7 @@ export const displayTasks = (project: Project) => {
   const range = document.createRange();
   range.selectNode(tasks);
   tasks.textContent = '';
-  project.tasks.forEach((task) => {
+  project.tasks.forEach((task, i) => {
     const isImportant = task.priority === 'Important' ? 'checked' : '';
     const isDone = task.done === true ? 'checked' : '';
     const date =
@@ -19,7 +19,8 @@ export const displayTasks = (project: Project) => {
       date,
       task.desc,
       isImportant,
-      isDone
+      isDone,
+      i
     );
     tasks.appendChild(range.createContextualFragment(taskFragment));
   });

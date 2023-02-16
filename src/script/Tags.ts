@@ -3,15 +3,16 @@ export const taskTag = (
   date: string,
   desc: string,
   checkImportant: string,
-  checkDone: string
+  checkDone: string,
+  i: number
 ) => {
   return `<div class="todo-container">
   <div>
     <h2 class="todo-title">${title}</h2>
     <span class="todo-date">${date}</span>
   </div>
-  <p class="todo-desc">${desc}</p>
-  <div>
+  <p class="todo-desc hidden" data-id-task=${i}>${desc}</p>
+  <div class="hidden check-important">
     <label for="important">Important</label>
     <input type="checkbox" id="todo-important" name="important"  ${checkImportant}/>
     <label for="done">Done</label>

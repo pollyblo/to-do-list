@@ -3,13 +3,17 @@ import { ToDo } from './ToDo';
 export interface Project {
   projectName: string;
   tasks: ToDo[];
+  setName: (name: string) => void;
+  addToDo: (toDo: ToDo) => void;
+  removeToDo: (toDo: ToDo) => void;
+  getProject: () => Project;
 }
 
 export const makeProject = (projectName: string) => {
   const tasks: ToDo[] = [];
 
   const getProject = (): Project => {
-    return { projectName, tasks };
+    return { projectName, tasks, setName, addToDo, removeToDo, getProject };
   };
 
   const setName = (name: string) => {

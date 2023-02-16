@@ -15,6 +15,8 @@ const defaultProject = makeProject('Default');
 mainBoard.addProject(defaultProject.getProject());
 
 const listeners = (() => {
+  let idProj = 0;
+
   const addTask = () => {
     const openModalBtn = document.querySelector('#add-btn') as HTMLDivElement;
     const closeModalBtn = document.querySelector(
@@ -31,10 +33,12 @@ const listeners = (() => {
 
     confirmModalBtn.addEventListener('click', () => {
       const task = saveTaskForm();
-      defaultProject.addToDo(task!.getToDo());
+      const project = mainBoard.getBoard()[idProj];
+      project.addToDo(task!.getToDo());
       makeModals().closeModal();
-      displayTasks(defaultProject.getProject());
+      displayTasks(project.getProject());
       taskForm.reset();
+      openToDo();
     });
   };
 
@@ -62,10 +66,22 @@ const listeners = (() => {
     const projectList = document.querySelectorAll('.project-list-item');
     projectList.forEach((p) => {
       p.addEventListener('click', () => {
-        const idNum = Number(p.getAttribute('data-id-proj'));
-        const project = mainBoard.getBoard()[idNum];
-        console.log(project);
+        idProj = Number(p.getAttribute('data-id-proj'));
+        const project = mainBoard.getBoard()[idProj];
         displayTasks(project);
+        openToDo();
+      });
+    });
+  };
+
+  const openToDo = () => {
+    const toDoContainer = document.querySelectorAll('.todo-container');
+    const toDoDesc = document.querySelectorAll('.todo-desc');
+    const checkImportant = document.querySelectorAll('.check-important');
+    toDoContainer.forEach((t, i) => {
+      t.addEventListener('click', () => {
+        toDoDesc[i].classList.toggle('hidden');
+        checkImportant[i].classList.toggle('hidden');
       });
     });
   };
@@ -74,9 +90,11 @@ const listeners = (() => {
     addTask,
     addProject,
     triggerProject,
+    openToDo,
   };
 })();
 
 listeners.addTask();
 listeners.addProject();
 listeners.triggerProject();
+listeners.openToDo();

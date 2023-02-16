@@ -4,6 +4,8 @@ export interface ToDo {
   dueDate: Date | 'No Date Due';
   priority: priority;
   done: boolean;
+  updatePrio: () => void;
+  isDone: () => void;
 }
 
 export type priority = 'Important' | 'Not Important';
@@ -15,26 +17,24 @@ export const makeToDo = (
   priority: priority,
   done: boolean
 ) => {
-  const toDoObject: ToDo = {
-    title,
-    desc,
-    dueDate,
-    priority,
-    done,
-  };
-
-  const updatePrio = (): ToDo => {
-    toDoObject.priority =
-      toDoObject.priority === 'Important' ? 'Not Important' : 'Important';
-    return toDoObject;
+  const updatePrio = () => {
+    priority = priority === 'Important' ? 'Not Important' : 'Important';
   };
 
   const isDone = () => {
-    toDoObject.done = toDoObject.done ? false : true;
+    done = done ? false : true;
   };
 
   const getToDo = (): ToDo => {
-    return toDoObject;
+    return {
+      title,
+      desc,
+      dueDate,
+      priority,
+      done,
+      updatePrio,
+      isDone,
+    };
   };
 
   return {
